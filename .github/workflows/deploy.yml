@@ -1,0 +1,28 @@
+name: deploy
+on:
+  push:
+    branches:
+      - env-test
+      - env-qa
+      - main
+
+jobs:
+  build-and-deploy:
+    name: build & push
+    runs-on:
+      - self-hosted #TODO
+    environment: ${{github.ref_name}}
+    steps:
+      - uses: actions/checkout@v3
+      - name: uruchom środowisko docker-compose
+        env:
+          ENV_NAME: ${{github.ref_name}}
+          POSTGRES_PORT: ${{secrets.POSTGRESS_PORT}}
+          POSTGRES_USER: ${{secrets.POSTGRESS_USER}}
+          POSTGRES_PASSWORD: ${{secrets.POSTGRESS_PASSWORD}}
+          POSTGRES_DB: ${{secrets.POSTGRESS_DB}}
+          GEOSERVER_ADMIN_USER: ${{secrets.GEOSERVER_ADMIN_USER}}
+          GEOSERVER_ADMIN_PASSWORD: ${{secrets.GEOSERVER_ADMIN_PASSWORD}}
+
+        run:
+          docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d
