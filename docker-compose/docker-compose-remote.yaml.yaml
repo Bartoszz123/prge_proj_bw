@@ -12,7 +12,7 @@ services:
       context: ..
       dockerfile: docker/postgis/Dockerfile
     image: 'postgis_prge'
-    container_name: 'postgis_prge'
+    container_name: 'postgis_prge_${{ENV_NAME}}'
     environment:
       - *env-postgres-db
       - *env-postgres-user
