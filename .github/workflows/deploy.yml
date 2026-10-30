@@ -23,6 +23,6 @@ jobs:
           POSTGRES_DB: ${{secrets.POSTGRESS_DB}}
           GEOSERVER_ADMIN_USER: ${{secrets.GEOSERVER_ADMIN_USER}}
           GEOSERVER_ADMIN_PASSWORD: ${{secrets.GEOSERVER_ADMIN_PASSWORD}}
-
+          #dodac zmienna geosrrverport
         run:
           docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d
