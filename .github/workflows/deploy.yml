@@ -10,7 +10,7 @@ jobs:
   build-and-deploy:
     name: build & push
     runs-on:
-      - self-hosted #TODO
+      - self-hosted
     environment: ${{github.ref_name}}
     steps:
       - uses: actions/checkout@v3
@@ -23,6 +23,7 @@ jobs:
           POSTGRES_DB: ${{secrets.POSTGRESS_DB}}
           GEOSERVER_ADMIN_USER: ${{secrets.GEOSERVER_ADMIN_USER}}
           GEOSERVER_ADMIN_PASSWORD: ${{secrets.GEOSERVER_ADMIN_PASSWORD}}
-          #dodac zmienna geosrrverport
+          #PROJ2 GEOSERVER_PORT: &{{secrets.GEOSERVER_PORT}}
+          #dodac zmienna geoserverport i fastapi port
         run:
           docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d
