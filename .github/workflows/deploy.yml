@@ -25,4 +25,4 @@ jobs:
           GEOSERVER_ADMIN_PASSWORD: ${{ secrets.GEOSERVER_ADMIN_PASSWORD }}
           GEOSERVER_PORT: ${{ secrets.GEOSERVER_PORT }}
           FASTAPI_PORT: ${{ secrets.FASTAPI_PORT }}
-        run: docker-compose -p remote-prge-${{env.ENV_NAME}} -f docker-compose-remote.yaml.yaml up --build -d
+        run: docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d
