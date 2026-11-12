@@ -1,4 +1,4 @@
-name: deploy
+name: deploy.yml
 on:
   push:
     branches:
@@ -7,23 +7,22 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-env-deploy:
     name: build & push
-    runs-on:
-      - self-hosted
-    environment: ${{github.ref_name}}
+    runs-on: self-hosted
+    environment: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v3
-      - name: uruchom środowisko docker-compose
+
+      - name: Uruchom srodowisko docker-compose
         env:
-          ENV_NAME: ${{github.ref_name}}
-          POSTGRES_PORT: ${{secrets.POSTGRESS_PORT}}
-          POSTGRES_USER: ${{secrets.POSTGRESS_USER}}
-          POSTGRES_PASSWORD: ${{secrets.POSTGRESS_PASSWORD}}
-          POSTGRES_DB: ${{secrets.POSTGRESS_DB}}
-          GEOSERVER_ADMIN_USER: ${{secrets.GEOSERVER_ADMIN_USER}}
-          GEOSERVER_ADMIN_PASSWORD: ${{secrets.GEOSERVER_ADMIN_PASSWORD}}
-          #PROJ2 GEOSERVER_PORT: &{{secrets.GEOSERVER_PORT}}
-          #dodac zmienna geoserverport i fastapi port
-        run:
-          docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d
+          ENV_NAME: ${{ github.ref_name }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          GEOSERVER_ADMIN_USER: ${{ secrets.GEOSERVER_ADMIN_USER }}
+          GEOSERVER_ADMIN_PASSWORD: ${{ secrets.GEOSERVER_ADMIN_PASSWORD }}
+          GEOSERVER_PORT: ${{ secrets.GEOSERVER_PORT }}
+          FASTAPI_PORT: ${{ secrets.FASTAPI_PORT }}
+        run: docker-compose -p remote-prge-$ENV_NAME -f docker-compose/docker-compose-remote.yaml.yaml up --build -d

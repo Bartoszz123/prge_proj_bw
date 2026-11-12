@@ -2,10 +2,9 @@ x-environment:
   - &env-postgres-db POSTGRES_DB=${POSTGRES_DB}
   - &env-postgres-user POSTGRES_USER=${POSTGRES_USER}
   - &env-postgres-password POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  - &env-geoserver-user GEOSERVER_ADMIN_USER=${GEOSERVER_ADMIN_USER}
-  - &env-geoserver-password GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD}
-#  - &env-postgres-port POSTGRES_PORT=${POSTGRES_PORT}
-
+  - &env-postgres-port POSTGRES_PORT=${POSTGRES_PORT}
+  - &env-geoserver-admin-user GEOSERVER_ADMIN_USER=${GEOSERVER_ADMIN_USER}
+  - &env-geoserver-admin-password GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD}
 
 services:
   postgis:
@@ -19,38 +18,39 @@ services:
       - *env-postgres-user
       - *env-postgres-password
     ports:
-      - ${POSTGRES_PORT}:5432
+      - '${POSTGRES_PORT}:5432'
     volumes:
       - postgis-data:/var/lib/postgresql/data
-# PROJ2 odkomentowac geoserver jesli runner dziala!
 
-#  geoserver:
+  geoserver:
+    build:
+      context: ..
+      dockerfile: docker/geoserver/Dockerfile
+    image: 'geoserver_prge'
+    container_name: 'geoserver_prge_${ENV_NAME}'
+    ports:
+      - '${GEOSERVER_PORT}:8080'
+    environment:
+      - *env-geoserver-admin-user
+      - *env-geoserver-admin-password
+    volumes:
+      - geoserver-data:/opt/geoserver_data
+
+#  fastapi:
 #    build:
 #      context: ..
-#      dockerfile: docker/geoserver/Dockerfile
-#    image: 'geoserver_prge'
-#    container_name: 'geoserver_prge' #PROJ2 zmienic nazwe kontenera i teraz commit i push
-#    environment:
-#      - *env-geoserver-user
-#      - *env-geoserver-password
-#    ports:
-#      - 9004:8080
-# - &{GEOSERVER_PORT}: 8080 #PROJ2
-
-#fastapi:
-#  build:
-#    context: ..
-#    dockerfile: docker/fastApi/Dockerfile
+#      dockerfile: docker/fastapi/Dockerfile
 #    image: 'fastapi_prge'
-#    container_name: 'fastapi_prge'.......tak jak na wideo uzuepelnic (2; 1:00:00)
+#    container_name: 'fastapi_prge_${ENV_NAME}'
 #    environment:
 #      - *env-postgres-db
 #      - *env-postgres-user
 #      - *env-postgres-password
 #      - *env-postgres-port
 #    ports:
-#      - ${FASTAPI_PORT}:10000
+#      - '${FASTAPI_PORT}:10000'
 
 
 volumes:
   postgis-data:
+  geoserver-data:
