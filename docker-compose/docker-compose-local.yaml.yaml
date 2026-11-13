@@ -30,10 +30,17 @@ services:
     image: 'geoserver_prge'
     container_name: 'geoserver_prge'
     environment:
+     - SKIP_DEMO_DATA=true
+     - *env-postgres-db
+     - *env-postgres-user
+     - *env-postgres-password
      - *env-geoserver-password
      - *env-geoserver-user
     ports:
       - 9004:8080
+    volumes:
+      - ../config/geoserver_data:/opt/geoserver_data
+
 
   fastapi:
     build:
