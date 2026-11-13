@@ -31,6 +31,9 @@ services:
     container_name: 'geoserver_prge'
     environment:
      - SKIP_DEMO_DATA=true
+     - *env-postgres-db
+     - *env-postgres-user
+     - *env-postgres-password
      - *env-geoserver-password
      - *env-geoserver-user
     ports:

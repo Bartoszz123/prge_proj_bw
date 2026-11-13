@@ -1,0 +1,16 @@
+<layer>
+  <name>budynki</name>
+  <id>LayerInfoImpl--40a494af:1a1d4a33301:-7fed</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--40a494af:1a1d4a33301:-7ffe</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--40a494af:1a1d4a33301:-7fee</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2026-11-13 11:33:30.133 UTC</dateCreated>
+</layer>

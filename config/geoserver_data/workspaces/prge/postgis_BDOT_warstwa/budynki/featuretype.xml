@@ -1,0 +1,65 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--40a494af:1a1d4a33301:-7fee</id>
+  <name>budynki</name>
+  <nativeName>budynki</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--40a494af:1a1d4a33301:-7ff5</id>
+  </namespace>
+  <title>budynki</title>
+  <keywords>
+    <string>features</string>
+    <string>budynki</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;ETRF2000-PL / CS92&quot;, 
+  GEOGCS[&quot;ETRF2000-PL&quot;, 
+    DATUM[&quot;ETRF2000 Poland&quot;, 
+      SPHEROID[&quot;GRS 1980&quot;, 6378137.0, 298.257222101, AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]], 
+      TOWGS84[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;1305&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;9702&quot;]], 
+  PROJECTION[&quot;Transverse_Mercator&quot;, AUTHORITY[&quot;EPSG&quot;,&quot;9807&quot;]], 
+  PARAMETER[&quot;central_meridian&quot;, 19.0], 
+  PARAMETER[&quot;latitude_of_origin&quot;, 0.0], 
+  PARAMETER[&quot;scale_factor&quot;, 0.9993], 
+  PARAMETER[&quot;false_easting&quot;, 500000.0], 
+  PARAMETER[&quot;false_northing&quot;, -5300000.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;2180&quot;]]</nativeCRS>
+  <srs>EPSG:2180</srs>
+  <nativeBoundingBox>
+    <minx>626467.75</minx>
+    <maxx>654431.375</maxx>
+    <miny>472655.90625</miny>
+    <maxy>501984.0</maxy>
+    <crs class="projected">EPSG:2180</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>20.847175121540225</minx>
+    <maxx>21.268699070504542</maxx>
+    <miny>52.098460563919964</miny>
+    <maxy>52.369182015859636</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--40a494af:1a1d4a33301:-7fef</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <simpleConversionEnabled>false</simpleConversionEnabled>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>
