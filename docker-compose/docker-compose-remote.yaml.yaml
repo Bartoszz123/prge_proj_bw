@@ -38,7 +38,7 @@ services:
     ports:
       - ${GEOSERVER_PORT}:8080
     volumes:
-      - ../config/geoserver_data:/opt/geoserver_data
+      - geoserver_data:/opt/geoserver_data
 
 
   fastapi:
@@ -58,3 +58,4 @@ services:
 
 volumes:
   postgis-data:
+  geoserver_data:
