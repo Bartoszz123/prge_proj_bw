@@ -33,6 +33,8 @@ services:
      - *env-geoserver-user
     ports:
       - ${GEOSERVER_PORT}:8080
+    volumes:
+      - ../config/geoserver_data:/opt/geoserver_data
 
 
   fastapi:
